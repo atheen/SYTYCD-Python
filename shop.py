@@ -21,7 +21,7 @@ def print_menu():
     Print the items in the menu dictionary.
     """
     print("Our menu:")
-    for item in cupcake_menu:
+    for item in menu:
         print("- \"%s\" (KD %s)" % (item, menu[item]))
 
 
@@ -33,16 +33,16 @@ def print_originals():
     """
     print("Our original flavor cupcakes (KD %s each):" % original_price)
     for item in original_flavors:
-    print("- \"%s\"" % item)
+        print("- \"%s\"" % (item))
 
 
 def print_signatures():
     """
     Print the signature flavor cupcakes.
     """
-    print("Our signature flavor cupcake (KD %s each):" % signature_price)
+    print("Our signature flavor cupcake (KD %s each):" % (signature_price))
     for item in signature_flavors:
-        print("- \"%s\"" % item)
+        print("- \"%s\"" % (item))
 
 
 def is_valid_order(order):
@@ -65,10 +65,10 @@ def get_order():
     """
     order_list = []
     order = input("What's your order? (Enter the exact spelling of the item you want. Type 'Exit' to end your order.)\n")
-    while order.lowercase() != "exit":
+    while order.lower() != "exit":
         if is_valid_order(order):
             order_list.append(order)
-        order = input()
+        order = input("What's your order? (Enter the exact spelling of the item you want. Type 'Exit' to end your order.)\n")
 
     return order_list
 
@@ -107,12 +107,12 @@ def print_order(order_list):
     print()
     print("Your order is: ")
     for order in order_list:
-        print("- %s " % order)
+        print("- %s " % (order))
 
     print()
     price = get_total_price(order_list)
-    print("That'll be KD %s" % price)
+    print("That'll be KD %s" % (price))
     if accept_credit_card(price):
         print("This order is eligible for credit card payment.")
 
-    print("Thank you for shopping at %s" % cupcake_shop_name)
+    print("Thank you for shopping at %s" % (cupcake_shop_name))
